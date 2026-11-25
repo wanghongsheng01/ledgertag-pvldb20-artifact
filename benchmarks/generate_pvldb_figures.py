@@ -218,9 +218,9 @@ def make_fig1_architecture():
     step_badge(ax, 4.98, 3.58, "3", bg=C_NAVY)
     ax.text(6.17, 3.42, "SpanVal & DirExcl Gate", ha="center", va="center",
             fontsize=6.5, fontweight="bold", color="#0F172A", zorder=6)
-    pill(ax, 5.07, 2.98, 0.72, 0.27, r"NFKC$\in A\ \checkmark$", fc=C_TEAL_BG, ec=C_TEAL, tc="#115E59", fs=5.2, bold=True, z=6)
-    pill(ax, 5.83, 2.98, 0.68, 0.27, r"Role $\checkmark$", fc=C_TEAL_BG, ec=C_TEAL, tc="#115E59", fs=5.2, bold=True, z=6)
-    pill(ax, 6.55, 2.98, 0.72, 0.27, r"Sentinel $\checkmark$", fc=C_TEAL_BG, ec=C_TEAL, tc="#115E59", fs=5.2, bold=True, z=6)
+    pill(ax, 5.05, 2.98, 0.92, 0.27, r"Span$\in\mathcal{A}(B)\ \checkmark$", fc=C_TEAL_BG, ec=C_TEAL, tc="#115E59", fs=5.0, bold=True, z=6)
+    pill(ax, 6.01, 2.98, 0.58, 0.27, r"Role $\checkmark$", fc=C_TEAL_BG, ec=C_TEAL, tc="#115E59", fs=5.1, bold=True, z=6)
+    pill(ax, 6.63, 2.98, 0.67, 0.27, r"Sentinel $\checkmark$", fc=C_TEAL_BG, ec=C_TEAL, tc="#115E59", fs=5.0, bold=True, z=6)
     ax.text(6.17, 2.78, "0.0% unverified confirm (Thm. 2)", ha="center", va="center",
             fontsize=5.6, color="#334155", zorder=6)
 
@@ -298,7 +298,7 @@ def make_fig1_architecture():
     step_badge(ax, 9.86, 1.76, "A", bg=C_AMBER)
     ax.text(8.87, 1.54, "Offline EB Recalibration", ha="center", va="center",
             fontsize=6.5, fontweight="bold", color="#92400E", zorder=5)
-    ax.text(8.87, 1.18, r"Beta-Binomial ($\tau_0, N^*$)" + "\nChronological holdout guard",
+    ax.text(8.87, 1.18, r"Beta-Binomial ($\alpha, n_{\min}$)" + "\nChronological holdout guard",
             ha="center", va="center", fontsize=5.5, color="#78350F", linespacing=1.22, zorder=5)
 
     # =========================================================================
@@ -523,7 +523,7 @@ def make_fig4_scaling_and_overhead():
                  fontsize=5.9, fontweight="bold", color=C_NAVY,
                  bbox=dict(boxstyle="round,pad=0.20", fc="#EDF5FC", ec=C_NAVY, lw=0.65),
                  arrowprops=dict(arrowstyle="->", color=C_NAVY, lw=0.85))
-    ax1.set_xlabel(r"Versioned History $|E_{\mathrm{rel}}|$")
+    ax1.set_xlabel(r"Versioned History $|\mathcal{E}_{\mathrm{rel}}(c)|$")
     ax1.set_ylabel("Prompt Tokens (log)")
     ax1.set_title("(a) Context Bound (Thm. 1)", fontweight="bold", fontsize=8.0, pad=5)
     ax1.set_ylim(30, 80000)
@@ -535,13 +535,13 @@ def make_fig4_scaling_and_overhead():
     cs = [r["cardinality_H_k"] for r in bt]
     y_lin = [r["linear_scan_us"] for r in bt]
     y_idx = [r["indexed_asof_us"] for r in bt]
-    ax2.loglog(cs, y_lin, marker="s", color=C_VERM, ls="--", lw=1.5, ms=3.5, label=r"Linear Scan $O(|H_k|)$")
-    ax2.loglog(cs, y_idx, marker="o", color=C_TEAL, ls="-", lw=1.8, ms=3.8, label=r"Indexed $O(\log |H_k|)$")
+    ax2.loglog(cs, y_lin, marker="s", color=C_VERM, ls="--", lw=1.5, ms=3.5, label=r"Linear Scan $O(|H_c|)$")
+    ax2.loglog(cs, y_idx, marker="o", color=C_TEAL, ls="-", lw=1.8, ms=3.8, label=r"Indexed $O(\log |H_c|)$")
     ax2.annotate(r"43,241x faster" + "\n" + r"(0.39 $\mu$s @ 1M)", xy=(1_000_000, 0.39), xytext=(4_500, 3.6),
                  fontsize=5.8, fontweight="bold", color=C_TEAL,
                  bbox=dict(boxstyle="round,pad=0.20", fc=C_TEAL_LIGHT, ec=C_TEAL, lw=0.65),
                  arrowprops=dict(arrowstyle="->", color=C_TEAL, lw=0.85))
-    ax2.set_xlabel(r"Dimension Tuples $|H_k|$")
+    ax2.set_xlabel(r"Entity History Tuples $|H_c|$")
     ax2.set_ylabel(r"As-Of Latency ($\mu$s, log)")
     ax2.set_title("(b) Bi-Temporal Index Scale", fontweight="bold", fontsize=8.0, pad=5)
     ax2.set_ylim(0.1, 70000)
