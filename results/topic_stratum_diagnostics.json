@@ -1,0 +1,84 @@
+{
+  "topic_diagnostics": [
+    {
+      "topic": "requirement_discussion",
+      "n": 34,
+      "prior": 0.23326554821216744
+    },
+    {
+      "topic": "order_detail_confirmation",
+      "n": 18,
+      "prior": 0.176019709827539
+    },
+    {
+      "topic": "post_delivery_support",
+      "n": 11,
+      "prior": 0.15475744521445964
+    },
+    {
+      "topic": "marketing_promotion",
+      "n": 26,
+      "prior": 0.1116809713209127
+    },
+    {
+      "topic": "follow_up",
+      "n": 18,
+      "prior": 0.10678894059676979
+    },
+    {
+      "topic": "cancellation_pause",
+      "n": 8,
+      "prior": 0.10471530249110321
+    },
+    {
+      "topic": "quality_issue",
+      "n": 5,
+      "prior": 0.09006296194908295
+    },
+    {
+      "topic": "meeting_arrangement",
+      "n": 15,
+      "prior": 0.08351384805817731
+    },
+    {
+      "topic": "system_noise",
+      "n": 7,
+      "prior": 0.08336892052194543
+    },
+    {
+      "topic": "no_action_reply",
+      "n": 27,
+      "prior": 0.07991865785460092
+    },
+    {
+      "topic": "sample_preparation",
+      "n": 16,
+      "prior": 0.07983392645314354
+    },
+    {
+      "topic": "price_negotiation",
+      "n": 9,
+      "prior": 0.07590537994557253
+    },
+    {
+      "topic": "partnership_distribution",
+      "n": 11,
+      "prior": 0.06791533995130174
+    },
+    {
+      "topic": "order_payment_confirmation",
+      "n": 26,
+      "prior": 0.052857441909148005
+    },
+    {
+      "topic": "fulfillment_logistics",
+      "n": 28,
+      "prior": 0.04992091735863978
+    },
+    {
+      "topic": "quotation",
+      "n": 22,
+      "prior": 0.026571767497034396
+    }
+  ]
+}

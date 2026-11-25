@@ -231,10 +231,8 @@ def run_eb_crossover_and_pareto_sweep() -> dict[str, Any]:
     from our frozen Enterprise B2B (16 topics, 300 calls) & Enron (6 genres, 360 calls) datasets.
     """
     exp4 = json.loads(EXP4_PATH.read_text())
-    # Real production topic counts & error rates from 281-email golden calibration report
-    prod_rep = json.loads(
-        (pathlib.Path("/Users/loctek/.gemini/antigravity/scratch/zju-ccfa-phd/repos/loctek-ai-os/scripts/review_calibration_report.json")).read_text()
-    )
+    # Anonymized aggregate topic counts & prior rates from 281-email golden calibration report
+    prod_rep = json.loads((REPO_ROOT / "results/topic_stratum_diagnostics.json").read_text())
     td = prod_rep["topic_diagnostics"]  # 16 real production topics with exact n and errors
     total_n = sum(x["n"] for x in td)
     probs_g = np.array([x["n"] / total_n for x in td], dtype=float)
