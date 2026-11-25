@@ -1,0 +1,253 @@
+{
+  "generated_at_utc": "2026-11-25T04:13:38.620869+00:00",
+  "seed": 42,
+  "part_a_10k_model_checker": {
+    "n_schedules": 10000,
+    "seed": 42,
+    "runtime_sec": 0.923,
+    "bitemporal_non_leakage": {
+      "ledgertag_pass": 10000,
+      "ledgertag_rate": 1.0,
+      "naive_leak_schedules": 9990,
+      "naive_leak_rate": 0.999
+    },
+    "attribution_dag_witness_soundness": {
+      "ledgertag_pass": 10000,
+      "ledgertag_rate": 1.0,
+      "naive_violation_schedules": 10000,
+      "naive_violation_rate": 1.0,
+      "by_quote_depth": {
+        "1": {
+          "total": 1179,
+          "pass": 1179
+        },
+        "2": {
+          "total": 1233,
+          "pass": 1233
+        },
+        "3": {
+          "total": 1282,
+          "pass": 1282
+        },
+        "4": {
+          "total": 1220,
+          "pass": 1220
+        },
+        "5": {
+          "total": 1219,
+          "pass": 1219
+        },
+        "6": {
+          "total": 1275,
+          "pass": 1275
+        },
+        "7": {
+          "total": 1268,
+          "pass": 1268
+        },
+        "8": {
+          "total": 1324,
+          "pass": 1324
+        }
+      }
+    },
+    "semilattice_confluence_and_idempotence": {
+      "confluence_pass": 10000,
+      "confluence_rate": 1.0,
+      "idempotence_pass": 10000,
+      "idempotence_rate": 1.0,
+      "naive_lww_order_divergences": 6536,
+      "naive_lww_divergence_rate": 0.6536
+    },
+    "sample_pi_anti_promotion_safety": {
+      "ledgertag_pass": 10000,
+      "ledgertag_rate": 1.0,
+      "naive_false_l5_rate": 1.0
+    }
+  },
+  "part_b_eb_crossover_and_residual_model": {
+    "n_strata_G": 16,
+    "effective_strata_G_eff": 12.96,
+    "prior_strength_tau0": 8.0,
+    "global_error_base_rate": 0.1031,
+    "inter_stratum_dispersion_sigma": 0.0605,
+    "mean_calibration_bias_delta": 0.047,
+    "analytical_crossover_N_star": 165.9,
+    "empirical_crossover_N": 80,
+    "calibration_sample_sweep": [
+      {
+        "N": 20,
+        "mean_lambda": 0.1315,
+        "eb_recall_20": 0.3167,
+        "eb_recall_ci95": [
+          0.2,
+          0.434
+        ],
+        "unsmoothed_recall_20": 0.2831,
+        "selfconf_recall_20": 0.3141,
+        "oracle_recall_20": 0.4123,
+        "eb_minus_selfconf_pp": 0.26,
+        "eb_minus_unsmoothed_pp": 3.36
+      },
+      {
+        "N": 40,
+        "mean_lambda": 0.228,
+        "eb_recall_20": 0.3224,
+        "eb_recall_ci95": [
+          0.2012,
+          0.4457
+        ],
+        "unsmoothed_recall_20": 0.2902,
+        "selfconf_recall_20": 0.3161,
+        "oracle_recall_20": 0.4176,
+        "eb_minus_selfconf_pp": 0.63,
+        "eb_minus_unsmoothed_pp": 3.22
+      },
+      {
+        "N": 80,
+        "mean_lambda": 0.3629,
+        "eb_recall_20": 0.3561,
+        "eb_recall_ci95": [
+          0.2287,
+          0.4901
+        ],
+        "unsmoothed_recall_20": 0.3153,
+        "selfconf_recall_20": 0.3246,
+        "oracle_recall_20": 0.4188,
+        "eb_minus_selfconf_pp": 3.15,
+        "eb_minus_unsmoothed_pp": 4.08
+      },
+      {
+        "N": 160,
+        "mean_lambda": 0.5212,
+        "eb_recall_20": 0.3799,
+        "eb_recall_ci95": [
+          0.218,
+          0.526
+        ],
+        "unsmoothed_recall_20": 0.3201,
+        "selfconf_recall_20": 0.3134,
+        "oracle_recall_20": 0.4192,
+        "eb_minus_selfconf_pp": 6.65,
+        "eb_minus_unsmoothed_pp": 5.98
+      },
+      {
+        "N": 320,
+        "mean_lambda": 0.6749,
+        "eb_recall_20": 0.3943,
+        "eb_recall_ci95": [
+          0.2363,
+          0.5285
+        ],
+        "unsmoothed_recall_20": 0.3596,
+        "selfconf_recall_20": 0.3099,
+        "oracle_recall_20": 0.4102,
+        "eb_minus_selfconf_pp": 8.44,
+        "eb_minus_unsmoothed_pp": 3.47
+      },
+      {
+        "N": 640,
+        "mean_lambda": 0.7994,
+        "eb_recall_20": 0.4028,
+        "eb_recall_ci95": [
+          0.2631,
+          0.5233
+        ],
+        "unsmoothed_recall_20": 0.3802,
+        "selfconf_recall_20": 0.3194,
+        "oracle_recall_20": 0.412,
+        "eb_minus_selfconf_pp": 8.35,
+        "eb_minus_unsmoothed_pp": 2.26
+      }
+    ],
+    "residual_corruption_model_fit": {
+      "checks": [
+        {
+          "config": "Enterprise Raw-LLM (no gov, q=0)",
+          "observed_res_err": 0.14,
+          "predicted_res_err": 0.14
+        },
+        {
+          "config": "Enterprise SelfConf-Gate (q=20%)",
+          "observed_res_err": 0.1125,
+          "predicted_res_err": 0.1129
+        },
+        {
+          "config": "Enterprise LedgerTag-Full (q=20%)",
+          "observed_res_err": 0.0667,
+          "predicted_res_err": 0.0623
+        },
+        {
+          "config": "Enron Raw-LLM (no gov, q=0)",
+          "observed_res_err": 0.3028,
+          "predicted_res_err": 0.3028
+        },
+        {
+          "config": "Enron LedgerTag-Full (q=25.3%)",
+          "observed_res_err": 0.223,
+          "predicted_res_err": 0.2166
+        }
+      ],
+      "mean_absolute_error": 0.0022
+    }
+  },
+  "part_c_bitemporal_and_dag_scaling": {
+    "bitemporal_cardinality_sweep": [
+      {
+        "cardinality_H_k": 1000,
+        "indexed_asof_us": 0.208,
+        "linear_scan_us": 17.3,
+        "speedup_factor": 83.4,
+        "pct_of_llm_latency": 5e-06
+      },
+      {
+        "cardinality_H_k": 10000,
+        "indexed_asof_us": 0.23,
+        "linear_scan_us": 173.7,
+        "speedup_factor": 756.0,
+        "pct_of_llm_latency": 6e-06
+      },
+      {
+        "cardinality_H_k": 100000,
+        "indexed_asof_us": 0.281,
+        "linear_scan_us": 1714.9,
+        "speedup_factor": 6106.5,
+        "pct_of_llm_latency": 7e-06
+      },
+      {
+        "cardinality_H_k": 1000000,
+        "indexed_asof_us": 0.429,
+        "linear_scan_us": 17150.0,
+        "speedup_factor": 40019.5,
+        "pct_of_llm_latency": 1.1e-05
+      }
+    ],
+    "quote_dag_depth_sweep": [
+      {
+        "quote_depth": 1,
+        "body_chars": 121,
+        "seg_and_span_us": 6.39
+      },
+      {
+        "quote_depth": 2,
+        "body_chars": 189,
+        "seg_and_span_us": 5.7
+      },
+      {
+        "quote_depth": 4,
+        "body_chars": 325,
+        "seg_and_span_us": 5.8
+      },
+      {
+        "quote_depth": 6,
+        "body_chars": 461,
+        "seg_and_span_us": 5.85
+      },
+      {
+        "quote_depth": 8,
+        "body_chars": 597,
+        "seg_and_span_us": 5.99
+      }
+    ]
+  }
+}
